@@ -154,6 +154,7 @@ details p a { text-decoration: underline; }
 .footer-grid > div:last-child .text-link { display: table; margin-top: 8px; }
 .footer-bottom { display: flex; justify-content: space-between; gap: 20px; border-top: 1px solid var(--line); margin-top: 45px; padding-top: 24px; font-size: 11px; color: var(--muted); }
 .footer-bottom a { text-decoration: underline; text-underline-offset: 3px; }
+.mobile-cta { display: none; }
 .skip-link { position: fixed; left: 20px; top: -100px; z-index: 100; background: var(--accent); color: var(--on-accent); padding: 12px; }
 .skip-link:focus { top: 10px; }
 [hidden] { display: none !important; }
@@ -179,6 +180,12 @@ details p a { text-decoration: underline; }
   .brand > span { font-size: 14px; }
 }
 @media (max-width: 760px) {
+  html { scroll-padding-top: 90px; }
+  .site-header { position: sticky; top: 0; z-index: 50; }
+  .mobile-cta { display: grid; gap: 8px; position: fixed; inset: auto 0 0; z-index: 50; padding: 10px 20px calc(12px + env(safe-area-inset-bottom)); background: #141519; border-top: 1px solid #ec762766; box-shadow: 0 -8px 24px #14151933; }
+  .mobile-cta-address { display: block; overflow: hidden; color: #c1c3cb; font-size: 12px; line-height: 1.4; text-align: center; white-space: nowrap; text-overflow: ellipsis; }
+  .mobile-cta-address span { color: #ffa367; }
+  .mobile-cta-button { justify-content: center; gap: 12px; width: 100%; font-size: 13px; }
   .container { padding-inline: 20px; }
   .section { padding-block: 54px; }
   .header-inner { min-height: 76px; gap: 12px; }
@@ -230,7 +237,7 @@ details p a { text-decoration: underline; }
   .footer-grid > div:first-child { grid-column: 1 / -1; }
   .footer-phone { font-size: 16px; }
   .footer-bottom { flex-direction: column; gap: 10px; }
-  .site-footer { padding-top: 45px; }
+  .site-footer { padding-top: 45px; padding-bottom: calc(153px + env(safe-area-inset-bottom)); }
 }
 @media (max-width: 600px) {
   .reviews-section .section-heading { display: block; margin-bottom: 24px; }
@@ -246,6 +253,8 @@ details p a { text-decoration: underline; }
 }
 @media (max-width: 380px) {
   .container { padding-inline: 16px; }
+  .mobile-cta { padding-inline: 16px; }
+  .mobile-cta-address { font-size: 11px; }
   .header-inner { gap: 8px; }
   .site-header .brand img { width: 128px; }
   .brand img { width: 140px; height: 47px; }
