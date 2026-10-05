@@ -36,11 +36,3 @@ new ResizeObserver(() => {
   updateControls();
 }).observe(track);
 controls.hidden = false;
-
-// Preview only: no network destination, storage or success redirect.
-for (const form of document.querySelectorAll('.preview-form')) {
-  form.addEventListener('submit', event => {
-    event.preventDefault();
-    form.querySelector('.form-status').textContent = 'Preview only — nothing was sent or saved. Call (239) 710-5111 to ask about your vehicle.';
-  });
-}

@@ -52,18 +52,14 @@ p { color: var(--muted); }
 .hero-buttons .text-link { font-size: 12px; }
 .hero-assurance { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 19px; font-size: 10px; color: #41413a; }
 .hero-assurance span::before { content: '·'; color: var(--accent-ink); margin-right: 6px; }
-.daylight-card, .quote-panel { --bg: #fff; --text: #202126; --muted: #606169; --line: #dedbd8; --accent: #ec7627; --accent-ink: #a7430b; --on-accent: #21170f; color: var(--text); min-width: 0; padding: 28px 0 0; background: var(--bg); border: 1px solid var(--line); border-top: 3px solid var(--accent); }
+.daylight-card, .quote-panel { --bg: #fff; --text: #202126; --muted: #606169; --line: #dedbd8; --accent: #ec7627; --accent-ink: #a7430b; --on-accent: #21170f; color: var(--text); min-width: 0; margin: 0; padding: 28px; background: var(--bg); border: 1px solid var(--line); border-top: 3px solid var(--accent); }
 .daylight-card { box-shadow: 0 15px 45px #21170f1a; }
 .daylight-card h2 { font-size: 27px; line-height: 1.2; font-weight: 600; }
 .daylight-card > p { font-size: 13px; margin: 10px 0 0; }
-.daylight-card h2, .daylight-card > p, .quote-panel h3 { margin-inline: 28px; }
-.preview-form { display: grid; gap: 15px; padding: 20px 28px 28px; }
-.preview-form label { display: grid; gap: 6px; font-size: 12px; font-weight: 700; }
-.preview-form input { width: 100%; min-width: 0; min-height: 48px; border: 1px solid var(--line); border-radius: 0; padding: 11px 12px; color: var(--text); background: #fff; }
-.preview-form .button { width: 100%; margin-top: 3px; }
-.form-note, .form-status { font-size: 11px; line-height: 1.7; }
-.form-note a { text-decoration: underline; text-underline-offset: 3px; }
-.form-status { color: var(--accent-ink); font-weight: 700; }
+/* Grey field shapes show while form_embed.js keeps the iframe hidden; the white form covers them once it loads. */
+.ghl-crop { overflow: hidden; min-height: 380px; margin-top: 20px; background: linear-gradient(#e9e8e6 0 0) 0 0 / 30% 10px, linear-gradient(#f2f1ef 0 0) 0 18px / 100% 44px, linear-gradient(#e9e8e6 0 0) 0 80px / 38% 10px, linear-gradient(#f2f1ef 0 0) 0 98px / 100% 44px, linear-gradient(#e9e8e6 0 0) 0 160px / 26% 10px, linear-gradient(#f2f1ef 0 0) 0 178px / 100% 44px, linear-gradient(#e9e8e6 0 0) 0 244px / 100% 48px; background-repeat: no-repeat; }
+/* Crops the padding and dashed outline set inside the GHL form. Delete once the form's padding is 0 and border removed in the GHL builder. */
+.ghl-form-frame { display: block; width: calc(100% + 84px); margin: -70px -42px -116px; border: 0; background: #fff; }
 .site-footer .brand img { width: 240px; height: 80px; }
 .portfolio-grid figcaption a:hover { text-decoration: underline; }
 .review-photo-link { display: block; }
@@ -204,9 +200,7 @@ details p a { text-decoration: underline; }
   .daylight-backdrop { height: 390px; object-position: center 60%; mask-image: linear-gradient(#000 80%, transparent); }
   .daylight-hero::before { background: linear-gradient(90deg, #fffffff2 0%, #f9f8f1d6 55%, #f4f3ec99 100%); }
   .daylight-copy .hero-buttons .text-link, .hero-assurance { display: none; }
-  .daylight-card, .quote-panel { padding: 24px 0 0; }
-  .daylight-card h2, .daylight-card > p, .quote-panel h3 { margin-inline: 20px; }
-  .preview-form { padding: 20px; }
+  .daylight-card, .quote-panel { padding: 24px 20px; }
   .daylight-card h2 { font-size: 26px; }
   .studio-trust { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px 0; padding-block: 25px; }
   .studio-trust > div:nth-child(3) { padding-left: 0; border-left: 0; }
@@ -259,9 +253,7 @@ details p a { text-decoration: underline; }
   .brand small { font-size: 6px; }
   .header-call { font-size: 11px; }
   .daylight-offer strong { font-size: 82px; }
-  .daylight-card, .quote-panel { padding: 22px 0 0; }
-  .daylight-card h2, .daylight-card > p, .quote-panel h3 { margin-inline: 16px; }
-  .preview-form { padding: 20px 16px 22px; }
+  .daylight-card, .quote-panel { padding: 22px 16px; }
   .benefit-grid, .why-grid { grid-template-columns: minmax(0, 1fr); }
   .quote-layout { padding: 24px 0 0; }
   .quote-copy { padding-inline: 14px; }
