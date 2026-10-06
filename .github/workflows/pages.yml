@@ -22,7 +22,7 @@ jobs:
       - name: Stage public site files
         run: |
           mkdir _site
-          cp -R index.html page.css site.js assets .nojekyll _site/
+          cp -R index.html thank-you.html page.css site.js assets .nojekyll _site/
       - uses: actions/upload-pages-artifact@v4
         with:
           path: _site

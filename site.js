@@ -1,3 +1,19 @@
+// GHL posts ["set-sticky-contacts", "embedded_iframe_<id>", ...] to the parent only after a successful submit.
+let submitted = false;
+window.addEventListener('message', event => {
+  const data = event.data;
+  if (submitted || !/(^|\.)leadconnectorhq\.com$/.test(new URL(event.origin).hostname)) return;
+  if (!Array.isArray(data) || data[0] !== 'set-sticky-contacts' || !String(data[1]).startsWith('embedded_iframe_')) return;
+  const frame = [...document.querySelectorAll('.ghl-form-frame')].find(f => f.contentWindow === event.source);
+  if (!frame) return;
+  submitted = true;
+  let left = false;
+  const go = () => left || (left = true, location.assign('thank-you.html'));
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({ event: 'ghl_form_submitted', form_id: frame.dataset.formId, form_name: frame.dataset.formName, eventCallback: go, eventTimeout: 1500 });
+  setTimeout(go, 1500);
+});
+
 // Native overflow/scroll-snap carousel; no cloned cards or autoplay.
 const track = document.querySelector('#review-track');
 const cards = [...track.children];
